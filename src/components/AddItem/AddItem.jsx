@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 
-export default function AddItem() {
+export default function AddItem({fetchList}) {
 	let [item, setItem] = useState('');
 	let [quantity, setQuantity] = useState('');
 	let [unit, setUnit] = useState('');
@@ -19,15 +19,19 @@ export default function AddItem() {
 			unit: unit
 		}).then(response => {
 			console.log('Collected data from DOM...');
-			setItem('');
-			setQuantity('');
-			setUnit('');
-			//Run the GET request to RENDER to DOM. . . Unable to do so at this time. 
+      fetchList();
+      clearInputs();
 		}).catch(error => {
 			console.log('There is an Error in axios.Post', error);
 			alert('Server error - try again later')
 		});
 	}
+
+  const clearInputs = () => {
+    setItem('');
+    setQuantity('');
+    setUnit('');
+  }
 
 	return (
 		<section className="add-item-form">

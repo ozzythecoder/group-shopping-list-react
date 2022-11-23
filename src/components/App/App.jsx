@@ -31,7 +31,7 @@ function App() {
             <main>
                 <p>Under Construction...</p>
             </main>
-            <AddItem />
+            <AddItem fetchList={fetchList} />
             <ShoppingList item={shoppingList}/>
         </div>
     );
