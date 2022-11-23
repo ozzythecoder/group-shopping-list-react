@@ -52,6 +52,7 @@ router.put('/reset', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const purchasedId = req.params.id;
+  console.log(purchasedId);
   let queryText = `UPDATE "shopping_table"
     SET "is_purchased" = true WHERE "id" = $1`
   
