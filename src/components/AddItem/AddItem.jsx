@@ -1,8 +1,14 @@
 export default function AddItem() {
 
+  const addShoppingItem = (evt) => {
+    evt.preventDefault();
+
+    console.log('in addShoppingItem');
+  }
+
   return (
     <section className="add-item-form">
-      <form>
+      <form onSubmit={addShoppingItem}>
         <label>Item:
           <input type="text" />
         </label>
