@@ -5,7 +5,8 @@ CREATE TABLE shopping_table
   "id" SERIAL PRIMARY KEY,
   "name" VARCHAR(80) NOT NULL,
   "quantity" DECIMAL(10,2) NOT NULL,
-  "unit" VARCHAR(20) NOT NULL
+  "unit" VARCHAR(20) NOT NULL,
+  "is_purchased" BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 INSERT INTO shopping_table
