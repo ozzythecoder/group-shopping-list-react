@@ -5,11 +5,11 @@ import axios from 'axios';
 
 function ShoppingList({ item, fetchList }) {
 
-    const ClearList = () => {
-        
+    const ClearList = (e) => {
+        e.preventDefault();
         axios.delete('/shopping')
         .then(response => {
-            setShoppingList(response.data)
+            fetchList();
             console.log('ClearList was a success', response.data);
         })
         .catch(error => {
@@ -33,7 +33,7 @@ function ShoppingList({ item, fetchList }) {
 		<div>
 			<h2>Shopping List</h2>
 			<button type="reset" onClick={handleReset}>Reset</button>
-			<button type="delete">Clear</button>
+			<button type="delete" onClick={ClearList}>Clear</button>
 			<Item item={item} />
 		</div>
 	)
