@@ -13,11 +13,6 @@ function item({item}) {
         console.log('Delete button was clicked');
     }
 
-    const purchasedItem = (e) => {
-        e.preventDefault();
-        console.log('Purchase button was clicked');
-    }
-
 
     return (
         <>
@@ -27,7 +22,7 @@ function item({item}) {
                         <p>{item.quantity}{item.unit}</p> 
                         {item.is_purchased === false && <button type="add" onClick={buyItem}>Buy</button> }
                         {item.is_purchased === false && <button type="delete" onClick={deleteItem}>Remove</button> } 
-                        {item.is_purchased === true && <button type="purchased" onClick={purchasedItem}>Purchased</button>}
+                        {item.is_purchased === true && <label>Purcased</label>}
                         {/* <button type="add">Buy</button>
                         <button type="delete">Remove</button> */}
                     </section>))}
