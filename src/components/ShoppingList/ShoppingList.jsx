@@ -1,3 +1,5 @@
+import React from 'react';
+import './ShoppingList.css'
 //put in placeholders here for further down the line
 //should be able to render here with the placeholders
 function ShoppingList() {
@@ -18,11 +20,13 @@ function ShoppingList() {
                         <button type="add">Buy</button>
                     <button type="delete">Remove</button>
                     </tbody> */}
+                <table className="list-table">
                     <p>Name placeholder</p>
                     <p>Quantity placeholder</p>
                     <p>Unit placeholder</p>
                     <button type="add">Buy</button>
                     <button type="delete">Remove</button>
+                </table>    
                 {/* </table> */}
 
         </div>
