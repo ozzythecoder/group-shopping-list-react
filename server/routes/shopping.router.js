@@ -35,37 +35,36 @@ router.post('/', (req, res) => {
 })
 
 
+router.put('/reset', (req, res) => {
+  let queryText = `UPDATE "shopping_table"
+    SET "is_purchased" = false`
 
+    pool.query(queryText)
+      .then(result => {
+        console.log('shopping list reset');
+        res.sendStatus(200);
+      })
+      .catch(error => {
+        console.log('error in router.put:', error);
+        res.sendStatus(500);
+      })
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+router.put('/:id', (req, res) => {
+  const purchasedId = req.params.id;
+  let queryText = `UPDATE "shopping_table"
+    SET "is_purchased" = true WHERE "id" = $1`
+  
+  pool.query(queryText, [purchasedId])
+    .then(result => {
+      console.log('marked item as purchased');
+      res.sendStatus(200);
+    })
+    .catch(error => {
+      console.log('Error in router.put:', error);
+      res.sendStatus(500);
+    })
+})
 //remove button
 router.delete('/:id', (req, res) =>{
 	let id = req.params.id
@@ -98,6 +97,5 @@ router.delete('/', (req, res) => {
 		res.sendStatus(500);
 	});
 })
-
 
 module.exports = router;

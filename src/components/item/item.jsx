@@ -8,9 +8,12 @@ function item({item}) {
                     {item.map(item => (
                     <section key={item.id} className='list-table'>
                         <p>{item.name}</p>
-                        <p>{item.quantity}{item.unit}</p>   
-                        <button type="add">Buy</button>
-                        <button type="delete">Remove</button>
+                        <p>{item.quantity}{item.unit}</p> 
+                        {item.is_purchased === false && <button type="add">Buy</button> }
+                        {item.is_purchased === false && <button type="delete">Remove</button> } 
+                        {item.is_purchased === true && <button type="purchased">Purchased</button>}
+                        {/* <button type="add">Buy</button>
+                        <button type="delete">Remove</button> */}
                     </section>))}
         </>
     )
