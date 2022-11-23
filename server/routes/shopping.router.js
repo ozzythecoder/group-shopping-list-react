@@ -34,6 +34,21 @@ router.post('/', (req, res) => {
 		});
 })
 
+router.put('/reset', (req, res) => {
+  let queryText = `UPDATE "shopping_table"
+    SET "is_purchased" = false`
+
+    pool.query(queryText)
+      .then(result => {
+        console.log('shopping list reset');
+        res.sendStatus(200);
+      })
+      .catch(error => {
+        console.log('error in router.put:', error);
+        res.sendStatus(500);
+      })
+})
+
 router.put('/:id', (req, res) => {
   const purchasedId = req.params.id;
   let queryText = `UPDATE "shopping_table"
