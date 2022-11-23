@@ -12,6 +12,7 @@ export default function AddItem() {
         <label>Item:
           <input type="text" />
         </label>
+        <br/>
         <label>
           Quantity:
           <input type="number" />

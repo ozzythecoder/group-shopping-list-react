@@ -24,9 +24,9 @@ function ShoppingList() {
                     <p>Name placeholder</p>
                     <p>Quantity placeholder</p>
                     <p>Unit placeholder</p>
+                </table>  
                     <button type="add">Buy</button>
                     <button type="delete">Remove</button>
-                </table>    
                 {/* </table> */}
 
         </div>
