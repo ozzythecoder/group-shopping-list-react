@@ -34,6 +34,7 @@ router.post('/', (req, res) => {
 		});
 })
 
+
 router.put('/reset', (req, res) => {
   let queryText = `UPDATE "shopping_table"
     SET "is_purchased" = false`
@@ -63,6 +64,23 @@ router.put('/:id', (req, res) => {
       console.log('Error in router.put:', error);
       res.sendStatus(500);
     })
+})
+
+router.delete('/:id', (req, res) =>{
+	let id = req.params.id
+	console.log('in router.delete');
+
+	let queryText = `DELETE from "shopping_table" WHERE id = $1`
+
+	pool.query(queryText, [id])
+	.then(() => {
+		console.log('router.DELETE went well')
+		res.sendStatus(200);
+	}).catch(error => {
+		console.log('Error found in router.DELETE.. ', error);
+		res.sendStatus(500);
+	});
+
 })
 
 module.exports = router;
