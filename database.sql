@@ -15,3 +15,7 @@ VALUES
   ('bread', 1, 'loaf'),
   ('coffee', 15, 'gallons'),
   ('bananas', 4, 'each');
+
+-- Sorts alphabetically, places purchased items at end of list
+SELECT * FROM shopping_table
+	ORDER BY is_purchased, name;
