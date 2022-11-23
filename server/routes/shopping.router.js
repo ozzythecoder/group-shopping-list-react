@@ -34,4 +34,55 @@ router.post('/', (req, res) => {
 		});
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.delete('/:id', (req, res) =>{
+	let id = req.params.id
+	console.log('in router.delete');
+
+	let queryText = `DELETE from "shopping_table" WHERE id = $1`
+
+	pool.query(queryText, [id])
+	.then(() => {
+		console.log('router.DELETE went well')
+		res.sendStatus(200);
+	}).catch(error => {
+		console.log('Error found in router.DELETE.. ', error);
+		res.sendStatus(500);
+	});
+
+})
+
+
 module.exports = router;
