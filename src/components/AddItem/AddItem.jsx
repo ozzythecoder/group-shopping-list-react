@@ -3,13 +3,9 @@ import { useState } from "react";
 
 
 export default function AddItem() {
-
 	let [item, setItem] = useState('');
 	let [quantity, setQuantity] = useState('');
 	let [unit, setUnit] = useState('');
-
-
-
 
 
 	const addShoppingItem = (evt) => {
