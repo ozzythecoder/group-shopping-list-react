@@ -1,2 +1,16 @@
--- Don't forget to add your create table SQL 
--- It is also helpful to include some test data
+-- Create database 'shopping-list'
+
+CREATE TABLE shopping_table
+  (
+  "id" SERIAL PRIMARY KEY,
+  "name" VARCHAR(80) NOT NULL,
+  "quantity" DECIMAL(10,2) NOT NULL,
+  "unit" VARCHAR(20) NOT NULL
+);
+
+INSERT INTO shopping_table
+  (name, quantity, unit)
+VALUES
+  ('bread', 1, 'loaf'),
+  ('coffee', 15, 'gallons'),
+  ('bananas', 4, 'each');
