@@ -34,4 +34,20 @@ router.post('/', (req, res) => {
 		});
 })
 
+router.put('/:id', (req, res) => {
+  const purchasedId = req.params.id;
+  let queryText = `UPDATE "shopping_table"
+    SET "is_purchased" = true WHERE "id" = $1`
+  
+  pool.query(queryText, [purchasedId])
+    .then(result => {
+      console.log('marked item as purchased');
+      res.sendStatus(200);
+    })
+    .catch(error => {
+      console.log('Error in router.put:', error);
+      res.sendStatus(500);
+    })
+})
+
 module.exports = router;
