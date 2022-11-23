@@ -1,10 +1,23 @@
 import React from 'react';
 import './ShoppingList.css';
 import Item from '../item/item';
-//put in placeholders here for further down the line
-//should be able to render here with the placeholders
+import axios from 'axios';
+
+
 function ShoppingList({item}) {
 
+    const ClearList = () => {
+        
+        axios.delete('/shopping')
+        .then(response => {
+            setShoppingList(response.data)
+            console.log('ClearList was a success', response.data);
+        })
+        .catch(error => {
+            alert('error in ClearList');
+            console.log(error);
+        })
+    }
     return (
         <div>
             <h2>Shopping List</h2>
