@@ -49,8 +49,6 @@ export default function AddItem({fetchList}) {
 				</label>
 				<button type="submit">Add Item</button>
 			</form>
-
-			<p> .  {item} . {quantity} . {unit}</p>
 		</section>
 	)
 }
