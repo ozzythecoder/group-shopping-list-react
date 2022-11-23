@@ -1,27 +1,41 @@
+import { useState } from "react";
+
+
+
 export default function AddItem() {
 
-  const addShoppingItem = (evt) => {
-    evt.preventDefault();
+	let [item, setItem] = useState('');
+	let [quantity, setQuantity] = useState('');
+	let [unit, setUnit] = useState('');
 
-    console.log('in addShoppingItem');
-  }
 
-  return (
-    <section className="add-item-form">
-      <form onSubmit={addShoppingItem}>
-        <label>Item:
-          <input type="text" />
-        </label>
-        <label>
-          Quantity:
-          <input type="number" />
-        </label>
-        <label>
-          Unit:
-          <input type="text" />
-        </label>
-        <button type="submit">Add Item</button>
-      </form>
-    </section>
-  )
+
+
+
+	const addShoppingItem = (evt) => {
+		evt.preventDefault();
+
+		console.log('in addShoppingItem');
+	}
+
+	return (
+		<section className="add-item-form">
+			<form onSubmit={addShoppingItem}>
+				<label>Item:
+					<input type="text" onChange={e => setItem(e.target.value)} value={item} />
+				</label>
+				<label>
+					Quantity:
+					<input type="number" onChange={e => setQuantity(e.target.value)} value={quantity} />
+				</label>
+				<label>
+					Unit:
+					<input type="text" onChange={e => setUnit(e.target.value)} value={unit} />
+				</label>
+				<button type="submit">Add Item</button>
+			</form>
+
+			<p> .  {item} . {quantity} . {unit}</p>
+		</section>
+	)
 }
