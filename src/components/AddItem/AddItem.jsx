@@ -7,7 +7,7 @@ import './AddItem.css';
 export default function AddItem({ fetchList }) {
 	let [item, setItem] = useState('');
 	let [quantity, setQuantity] = useState('');
-	let [unit, setUnit] = useState('');
+	let [unit, setUnit] = useState('EA');
 
 	const handleSelect = (e) => {
 		console.log('unit of measure: ', e.target.value)

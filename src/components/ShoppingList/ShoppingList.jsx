@@ -34,7 +34,9 @@ function ShoppingList({ item, fetchList }) {
 			<h2>Shopping List</h2>
 			<button type="reset" onClick={handleReset}>Reset</button>
 			<button type="delete" onClick={ClearList}>Clear</button>
-			<Item item={item} fetchList={fetchList} />
+      <div  className="list-container">
+			  <Item item={item} fetchList={fetchList} />
+      </div>
 		</div>
 	)
 }
