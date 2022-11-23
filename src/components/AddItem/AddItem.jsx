@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 
@@ -12,6 +13,20 @@ export default function AddItem() {
 		evt.preventDefault();
 
 		console.log('in addShoppingItem');
+		axios.post('/shopping', {
+			name: item,
+			quantity: quantity,
+			unit: unit
+		}).then(response => {
+			console.log('Collected data from DOM...');
+			setItem('');
+			setQuantity('');
+			setUnit('');
+			//Run the GET request to RENDER to DOM. . . Unable to do so at this time. 
+		}).catch(error => {
+			console.log('There is an Error in axios.Post', error);
+			alert('Server error - try again later')
+		});
 	}
 
 	return (
