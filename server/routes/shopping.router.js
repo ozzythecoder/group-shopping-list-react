@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-router.get('/', (req, res) => {
-	console.log('in GET shopping items');
-	let queryText = 'SELECT * from "shopping-table"';
+router.get('/', (req, res) =>{
+    console.log('in GET shopping items');
+    let queryText ='SELECT * from "shopping_table"';
 
 	pool.query(queryText)
 		.then((result) => {
