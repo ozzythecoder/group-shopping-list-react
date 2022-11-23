@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
 	console.log('in GET shopping items');
-	let queryText = 'SELECT * from "shopping_table"';
+	let queryText = 'SELECT * from "shopping_table" ORDER BY is_purchased, name';
 
 	pool.query(queryText)
 		.then((result) => {
