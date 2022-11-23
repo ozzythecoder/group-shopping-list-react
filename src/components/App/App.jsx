@@ -28,9 +28,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
-			<main>
-				<p>Under Construction...</p>
-			</main>
+
 			<AddItem fetchList={fetchList} />
 			<ShoppingList item={shoppingList} fetchList={fetchList} />
 
