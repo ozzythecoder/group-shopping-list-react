@@ -65,7 +65,7 @@ router.put('/:id', (req, res) => {
       res.sendStatus(500);
     })
 })
-
+//remove button
 router.delete('/:id', (req, res) =>{
 	let id = req.params.id
 	console.log('in router.delete');
@@ -80,7 +80,22 @@ router.delete('/:id', (req, res) =>{
 		console.log('Error found in router.DELETE.. ', error);
 		res.sendStatus(500);
 	});
+})
+//clear button delete
+router.delete('/', (req, res) => {
+	
+	console.log('in ShoppingList Delete');
 
+	let queryText = `TRUNCATE TABLE "shopping_table";`;
+
+	pool.query(queryText)
+	.then(() => {
+		console.log('CLEAR table went well')
+		res.sendStatus(200);
+	}). catch(error => {
+		console.log('error in CLEAR table', error);
+		res.sendStatus(500);
+	});
 })
 
 module.exports = router;
